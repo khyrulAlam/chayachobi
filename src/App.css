@@ -21,6 +21,81 @@
 .App-link {
   color: #61dafb;
 }
+.mv__wrapper{
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.mv__thumb{
+  min-height: 350px;
+  width: 21%;
+  margin-bottom: 35px;
+  box-shadow: 0 0 38px 2px rgba(230, 230, 230, 0.72);
+  border-radius: 6px;
+  position: relative;
+}
+.mv__thumb__img{
+  position: relative;
+}
+.mv__thumb__img img{
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+.mv__rating{
+  position: absolute;
+  bottom: -15px;
+  right: 15px;
+  background: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 600;
+  color: #5ee43c;
+  padding: 15px 13px;
+  box-shadow: 0px 3px 21px 1px rgba(0, 0, 0, 0.12);
+  min-width: 25px;
+  transition: .3s ease-in;
+}
+.mv__description{
+  display: flex;
+  padding: 25px 15px 15px 15px;
+  flex-wrap: wrap;
+}
+.mv__vote__count{
+  width: 50%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  margin-bottom: 15px;
+}
+.mv__popularity{
+  width: 50%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  margin-bottom: 15px;
+}
+.mv__release__date{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+.mv__release__date span, 
+.mv__popularity span, 
+.mv__vote__count span{
+  font-weight: 600;
+  color:rgba(0, 0, 0, 0.5607843137254902);
+  padding-left: 10px;
+}
+.mv__thumb:hover .mv__rating{
+  background: #5ee43c;
+  color: #ffffff;
+}
+
 
 @keyframes App-logo-spin {
   from {
