@@ -6,7 +6,7 @@ import MvWatched from "./mvWatched";
 class mvThumb extends Component {
   // constructor(props) {
   //   super(props);
-  //   this.state = {};
+  //   // console.log(this.props.fullDetailsSection);
   // }
   render() {
     return (
@@ -21,6 +21,7 @@ class mvThumb extends Component {
           vote_count={this.props.mv.vote_count}
           popularity={this.props.mv.popularity}
           release_date={this.props.mv.release_date}
+          fullDetailsSection={this.props.fullDetailsSection}
         />
       </div>
     );

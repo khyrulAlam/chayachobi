@@ -98,6 +98,9 @@
   text-align: right;
 }
 .mv__button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   padding: 8px 20px;
   border: none;
   background: #006724;
@@ -159,14 +162,24 @@
 }
 
 /* movie details */
-.mv_details {
+.mv__details {
   position: absolute;
   width: 100%;
   height: 100%;
   background: #2d7134e6;
   z-index: 11111;
   top: 0;
-  right: -10%;
+  right: -100%;
+  transition: 0.3s all;
+}
+.close__details {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #bbd6c2;
+  padding: 11px 14px;
+  cursor: pointer;
+  border-radius: 0px 0px 10px 0px;
 }
 
 @keyframes App-logo-spin {

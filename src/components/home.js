@@ -3,13 +3,15 @@ import axios from "axios";
 import { MDB_ORIGIN_URL, MDB_API_KEY, MDB_VERSION } from "../config";
 import MvThumb from "./mini-components/mvThumb";
 import ReactPaginate from "react-paginate";
+import FullDetails from "./mini-components/fullDetails";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
-      totalPages: null
+      pageCount: 0,
+      dscSection: "-100%"
     };
   }
   componentDidMount() {
@@ -43,11 +45,22 @@ class Home extends Component {
         console.log(e.error);
       });
   };
+  fullDetailsSection = () => {
+    if (this.state.dscSection === "-10%") {
+      this.setState({ dscSection: "-100%" });
+    } else {
+      this.setState({ dscSection: "-10%" });
+    }
+  };
   render() {
     return (
       <div className="mv__wrapper">
         {this.state.movies.map((mv, i) => (
-          <MvThumb mv={mv} key={i} />
+          <MvThumb
+            mv={mv}
+            key={i}
+            fullDetailsSection={this.fullDetailsSection}
+          />
         ))}
         <div className="mv__pagination">
           <ReactPaginate
@@ -62,6 +75,8 @@ class Home extends Component {
             activeClassName={"active"}
           />
         </div>
+
+        <FullDetails dscSection={this.state.dscSection} />
       </div>
     );
   }

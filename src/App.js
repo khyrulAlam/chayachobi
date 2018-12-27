@@ -13,9 +13,7 @@ class App extends Component {
         <header>
           <img src={logo} alt="logo" style={{ width: "250px" }} />
         </header>
-
         <Home />
-        <div className="mv_details" />
       </div>
     );
   }

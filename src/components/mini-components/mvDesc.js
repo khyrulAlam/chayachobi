@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class mvDesc extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   console.log(this.props);
+  // }
   render() {
     return (
       <div className="mv__description">
@@ -17,7 +21,12 @@ class mvDesc extends Component {
           <span>{this.props.release_date}</span>
         </div>
         <div className="mv__more">
-          <a className="mv__button">More</a>
+          <button
+            className="mv__button"
+            onClick={this.props.fullDetailsSection}
+          >
+            More
+          </button>
         </div>
       </div>
     );
