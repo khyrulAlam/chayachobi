@@ -11,7 +11,7 @@
 # production
 /build
 config.js
-
+request.http
 # misc
 .DS_Store
 .env.local

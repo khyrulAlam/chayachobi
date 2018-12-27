@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./icon/tmdb.svg";
+import logo from "./tmdb.svg";
 import "./App.css";
 import Home from "./components/home";
 
@@ -15,6 +15,7 @@ class App extends Component {
         </header>
 
         <Home />
+        <div className="mv_details" />
       </div>
     );
   }
