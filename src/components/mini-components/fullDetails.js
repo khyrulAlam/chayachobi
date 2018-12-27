@@ -3,14 +3,19 @@ import React, { Component } from "react";
 class FullDetails extends Component {
   // constructor(props) {
   //   super(props);
-  //   console.log(this.props);
+  //   this.state = {};
   // }
   render() {
     return (
       <div className="mv__details" style={{ right: this.props.dscSection }}>
-        <span className="close__details">
-          <img src="/icon/delete.png" alt="delete" />
-        </span>
+        {this.props.closeBtn ? (
+          <span
+            className="close__details"
+            onClick={this.props.fullDetailsSectionClose}
+          >
+            <img src="/icon/delete.png" alt="delete" />
+          </span>
+        ) : null}
       </div>
     );
   }

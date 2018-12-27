@@ -11,7 +11,8 @@ class Home extends Component {
     this.state = {
       movies: [],
       pageCount: 0,
-      dscSection: "-100%"
+      dscSection: "-100%",
+      closeBtn: false
     };
   }
   componentDidMount() {
@@ -46,11 +47,10 @@ class Home extends Component {
       });
   };
   fullDetailsSection = () => {
-    if (this.state.dscSection === "-10%") {
-      this.setState({ dscSection: "-100%" });
-    } else {
-      this.setState({ dscSection: "-10%" });
-    }
+    this.setState({ dscSection: "-10%", closeBtn: true });
+  };
+  fullDetailsSectionClose = () => {
+    this.setState({ dscSection: "-100%", closeBtn: false });
   };
   render() {
     return (
@@ -76,7 +76,11 @@ class Home extends Component {
           />
         </div>
 
-        <FullDetails dscSection={this.state.dscSection} />
+        <FullDetails
+          dscSection={this.state.dscSection}
+          closeBtn={this.state.closeBtn}
+          fullDetailsSectionClose={this.fullDetailsSectionClose}
+        />
       </div>
     );
   }

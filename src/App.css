@@ -173,8 +173,8 @@
   transition: 0.3s all;
 }
 .close__details {
-  position: absolute;
-  left: 0px;
+  position: fixed;
+  left: 10%;
   top: 0px;
   background: #bbd6c2;
   padding: 11px 14px;
