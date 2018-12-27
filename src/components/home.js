@@ -10,6 +10,7 @@ class Home extends Component {
     super(props);
     this.state = {
       movies: [],
+      movie: [],
       pageCount: 0,
       dscSection: "-100%",
       closeBtn: false
@@ -30,11 +31,10 @@ class Home extends Component {
       });
   }
   handlePageClick = data => {
-    // console.log(data.selected);
-    let mdbUrl = `${MDB_ORIGIN_URL}/${MDB_VERSION}/discover/movie?page=${data.selected +
+    let url = `${MDB_ORIGIN_URL}/${MDB_VERSION}/discover/movie?page=${data.selected +
       1}&api_key=${MDB_API_KEY}`;
     axios
-      .get(mdbUrl)
+      .get(url)
       .then(res => {
         this.setState({
           movies: res.data.results,
@@ -46,8 +46,18 @@ class Home extends Component {
         console.log(e.error);
       });
   };
-  fullDetailsSection = () => {
+  fullDetailsSection = mvId => {
     this.setState({ dscSection: "-10%", closeBtn: true });
+    if (this.state.movie.id !== mvId) {
+      let url = `${MDB_ORIGIN_URL}/${MDB_VERSION}/movie/${mvId}?api_key=${MDB_API_KEY}`;
+      axios(url)
+        .then(res => {
+          this.setState({ movie: res.data });
+        })
+        .catch(e => {
+          console.log(e.error);
+        });
+    }
   };
   fullDetailsSectionClose = () => {
     this.setState({ dscSection: "-100%", closeBtn: false });
@@ -80,6 +90,7 @@ class Home extends Component {
           dscSection={this.state.dscSection}
           closeBtn={this.state.closeBtn}
           fullDetailsSectionClose={this.fullDetailsSectionClose}
+          movie={this.state.movie}
         />
       </div>
     );

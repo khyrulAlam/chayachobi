@@ -23,7 +23,9 @@ class mvDesc extends Component {
         <div className="mv__more">
           <button
             className="mv__button"
-            onClick={this.props.fullDetailsSection}
+            onClick={() => {
+              this.props.fullDetailsSection(this.props.id);
+            }}
           >
             More
           </button>
