@@ -23,17 +23,50 @@ class FullDetails extends Component {
             title={this.props.movie.title}
             backdropPath={this.props.movie.backdrop_path}
           />
-          <p>title: {this.props.movie.title} </p>
-          <p>original_title: {this.props.movie.original_title} </p>
-          <p>overview: {this.props.movie.overview} </p>
-          <p>tagline: {this.props.movie.tagline} </p>
-          <p>genres: </p>
-          <p>budget: {this.props.movie.budget} </p>
-          <p>imdb_id: {this.props.movie.imdb_id} </p>
-          <p>homepage: {this.props.movie.homepage} </p>
-          <p>popularity: {this.props.movie.popularity} </p>
-          <p>release_date: {this.props.movie.release_date} </p>
-          <p>revenue: {this.props.movie.revenue} </p>
+
+          <div className="des__box">
+            <div className="des__left">
+              <p>
+                <span className="tag__title">Title:</span>{" "}
+                {this.props.movie.title}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Tagline:</span>{" "}
+                {this.props.movie.tagline}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Genres:</span>{" "}
+              </p>
+              <p>
+                <span className="tag__title">Budget:</span>{" "}
+                {this.props.movie.budget}{" "}
+              </p>
+              <p>
+                <span className="tag__title">IMDB:</span>{" "}
+                {this.props.movie.imdb_id}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Homepage:</span>{" "}
+                {this.props.movie.homepage}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Popularity:</span>{" "}
+                {this.props.movie.popularity}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Release Date:</span>{" "}
+                {this.props.movie.release_date}{" "}
+              </p>
+              <p>
+                <span className="tag__title">Revenue:</span>{" "}
+                {this.props.movie.revenue}{" "}
+              </p>
+            </div>
+            <div className="des__right">
+              <h3>Overview</h3>
+              <p>{this.props.movie.overview} </p>
+            </div>
+          </div>
         </div>
       </div>
     );
