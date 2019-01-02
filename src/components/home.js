@@ -4,6 +4,7 @@ import { MDB_ORIGIN_URL, MDB_API_KEY, MDB_VERSION } from "../config";
 import MvThumb from "./mini-components/mvThumb";
 import ReactPaginate from "react-paginate";
 import FullDetails from "./mini-components/fullDetails";
+import LoadingContainer from "./mini-components/loadingContainer";
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Home extends Component {
       movie: [],
       pageCount: 0,
       dscSection: "-100%",
-      closeBtn: false
+      closeBtn: false,
+      isLoading: true
     };
   }
   componentDidMount() {
@@ -23,7 +25,8 @@ class Home extends Component {
       .then(res => {
         this.setState({
           movies: res.data.results,
-          pageCount: res.data.total_pages
+          pageCount: res.data.total_pages,
+          isLoading: false
         });
       })
       .catch(e => {
@@ -40,7 +43,7 @@ class Home extends Component {
           movies: res.data.results,
           pageCount: res.data.total_pages
         });
-        // console.log(res.data);
+        // console.log(this.state.isLoading);
       })
       .catch(e => {
         console.log(e.error);
@@ -63,37 +66,41 @@ class Home extends Component {
     this.setState({ dscSection: "-100%", closeBtn: false });
   };
   render() {
-    return (
-      <div className="mv__wrapper">
-        {this.state.movies.map((mv, i) => (
-          <MvThumb
-            mv={mv}
-            key={i}
-            fullDetailsSection={this.fullDetailsSection}
-          />
-        ))}
-        <div className="mv__pagination">
-          <ReactPaginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={10}
-            onPageChange={this.handlePageClick}
-            activeClassName={"active"}
+    if (this.state.isLoading) {
+      return <LoadingContainer />;
+    } else {
+      return (
+        <div className="mv__wrapper">
+          {this.state.movies.map((mv, i) => (
+            <MvThumb
+              mv={mv}
+              key={i}
+              fullDetailsSection={this.fullDetailsSection}
+            />
+          ))}
+          <div className="mv__pagination">
+            <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={0}
+              pageRangeDisplayed={10}
+              onPageChange={this.handlePageClick}
+              activeClassName={"active"}
+            />
+          </div>
+
+          <FullDetails
+            dscSection={this.state.dscSection}
+            closeBtn={this.state.closeBtn}
+            fullDetailsSectionClose={this.fullDetailsSectionClose}
+            movie={this.state.movie}
           />
         </div>
-
-        <FullDetails
-          dscSection={this.state.dscSection}
-          closeBtn={this.state.closeBtn}
-          fullDetailsSectionClose={this.fullDetailsSectionClose}
-          movie={this.state.movie}
-        />
-      </div>
-    );
+      );
+    }
   }
 }
 

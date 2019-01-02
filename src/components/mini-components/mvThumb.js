@@ -6,6 +6,9 @@ import MvWatched from "./mvWatched";
 class mvThumb extends Component {
   // constructor(props) {
   //   super(props);
+  //   this.state = {
+  //     movie: 0
+  //   };
   //   // console.log(this.props.fullDetailsSection);
   // }
   render() {
