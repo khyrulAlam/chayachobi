@@ -16,6 +16,7 @@ class Pagination extends Component {
     }
   }
   nextPage = data => {
+    window.scrollTo(0, 0);
     this.props.isLoadingTrue();
     let url = `${MDB_ORIGIN_URL}/${MDB_VERSION}/discover/movie?page=${data.selected +
       1}&api_key=${MDB_API_KEY}`;

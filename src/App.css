@@ -62,7 +62,53 @@ code {
   cursor: pointer;
   width: 15%;
 }
-
+.mv__movie__box{
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.mv__movie__box .ant-col-6{
+  width: 23%;
+  background: #fff;
+  margin-bottom: 60px;
+  border-radius: 6px;
+  box-shadow: 0 0 32px 1px #00000024;
+}
+.mv__movie__box .ant-card-bordered{
+  border: none;
+}
+.movie__title{
+  margin-bottom: 5px;
+  padding: 5px 0px;
+}
+.movie__title h3{
+  margin: 0;
+  font-weight: 800;
+  background: rgba(103, 210, 49, 0.04);
+  color: #52c41a;
+  padding: 10px 0;
+}
+.movie__desc__grid{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.movie_details{
+  background: #5de551;
+  border: 1px solid transparent;
+  color: white;
+  margin: 25px 0 0;
+  height: 45px;
+  font-size: 20px;
+  transform: skew(-4deg);
+}
+.movie_details:hover,.movie_details:focus,.movie_details:active{
+  border: 1px solid #5de551;
+  background: transparent;
+  color: #5de551;
+  font-weight: 600;
+}
 .App-link {
   color: #61dafb;
 }

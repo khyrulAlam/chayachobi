@@ -20,14 +20,19 @@ class index extends Component {
   onClose = () => {
     this.setState({ visible: false });
   };
+  openDrawer = () => {
+    this.setState({ visible: true });
+  };
   render() {
     return (
       <React.Fragment>
         <Layout>
           <Row gutter={16}>
-            {this.state.movies.map((movie, i) => (
-              <MovieCard movie={movie} key={i} />
-            ))}
+            <div className="mv__movie__box">
+              {this.state.movies.map((movie, i) => (
+                <MovieCard movie={movie} key={i} openDrawer={this.openDrawer} />
+              ))}
+            </div>
           </Row>
         </Layout>
         <Drawer
