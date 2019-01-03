@@ -7,14 +7,12 @@ class Header extends Component {
       <React.Fragment>
         <header>
           <img src="./icon/tmdb.svg" alt="logo" style={{ width: "250px" }} />
-          <Layout style={{ margin: "30px 0" }}>
-            <div>
-              <button>Home</button>
-              <button>Top Rated</button>
-              <button>On Theaters</button>
-              <button>Upcoming</button>
-              <button>Must Watch</button>
-            </div>
+          <Layout className="mv__navigation">
+            <button>Home</button>
+            <button>Top Rated</button>
+            <button>On Theaters</button>
+            <button>Upcoming</button>
+            <button>Must Watch</button>
           </Layout>
         </header>
       </React.Fragment>
