@@ -9,7 +9,7 @@ class index extends Component {
     super(props);
     this.state = {
       movies: [],
-      visible: true
+      visible: false
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -23,7 +23,7 @@ class index extends Component {
   render() {
     return (
       <React.Fragment>
-        <Layout style={{ padding: "30px" }}>
+        <Layout>
           <Row gutter={16}>
             {this.state.movies.map((movie, i) => (
               <MovieCard movie={movie} key={i} />

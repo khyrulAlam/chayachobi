@@ -46,20 +46,21 @@ code {
 .mv__navigation{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   padding: 30px;
 }
 .mv__navigation button{
-  flex: 1 1;
-  padding: 4px 30px;
+  padding: 12px 30px;
   border: none;
   border-left: 0px solid white;
+  -webkit-transform: skewX(-5deg);
   transform: skewX(-5deg);
   background: #4fd378;
   margin: 0 3px;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  width: 15%;
 }
 
 .App-link {
