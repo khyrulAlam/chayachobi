@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Drawer, Icon, Spin, Layout, Tag } from "antd";
+import { Drawer, Icon, Spin, Layout, Tag, Avatar, Tooltip } from "antd";
 import Img from "react-image";
 const antIcon = (
   <Icon
@@ -8,7 +8,6 @@ const antIcon = (
     spin
   />
 );
-
 class MovieDetails extends Component {
   render() {
     if (!this.props.movie) {
@@ -61,7 +60,23 @@ class MovieDetails extends Component {
               Runtime
             </h3>
             <p>{this.props.movie.runtime}m</p>
-            {/* <h3>IMDB ID: {this.props.movie.imdb_id}</h3> */}
+            <h3>Production Company</h3>
+            <div>
+              {this.props.movie.production_companies.map((company, i) => (
+                <React.Fragment key={i}>
+                  {company.logo_path ? (
+                    <Tooltip title={company.name}>
+                      <Avatar
+                        size={28}
+                        src={
+                          "https://image.tmdb.org/t/p/w500" + company.logo_path
+                        }
+                      />
+                    </Tooltip>
+                  ) : null}
+                </React.Fragment>
+              ))}
+            </div>
           </Layout>
         </Drawer>
       </React.Fragment>

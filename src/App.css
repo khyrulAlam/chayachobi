@@ -125,7 +125,9 @@ code {
 .fulldsc__description{
   padding: 30px;
 }
-
+.fulldsc__description .ant-avatar{
+  margin-right: 10px;
+}
 .App-link {
   color: #61dafb;
 }
