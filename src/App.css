@@ -109,6 +109,23 @@ code {
   color: #5de551;
   font-weight: 600;
 }
+.movie__fullDsc .ant-drawer-header{
+  background: #00d07f;
+  border-radius:0;
+}
+.movie__fullDsc .ant-drawer-title{
+  color: #FFF;
+}
+.movie__fullDsc .ant-drawer-close-x{
+  color: #FFF;
+}
+.movie__fullDsc  .ant-drawer-body{
+  padding: 0px;
+}
+.fulldsc__description{
+  padding: 30px;
+}
+
 .App-link {
   color: #61dafb;
 }

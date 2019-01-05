@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import { Layout, Row, Drawer } from "antd";
+import { MDB_ORIGIN_URL, MDB_API_KEY, MDB_VERSION } from "../../config";
+import axios from "axios";
+import { Layout, Row } from "antd";
 import MovieCard from "./MovieCard";
-
-// const myComponent = () => <Img src="www.example.com/foo.jpg" />
+import MovieDetails from "./MovieDetails";
 
 class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
-      visible: false
+      visible: false,
+      movieId: null,
+      movie: null
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -20,8 +23,19 @@ class index extends Component {
   onClose = () => {
     this.setState({ visible: false });
   };
-  openDrawer = () => {
+  openDrawer = movieId => {
     this.setState({ visible: true });
+    if (this.state.movieId !== movieId) {
+      this.setState({ visible: true });
+      let url = `${MDB_ORIGIN_URL}/${MDB_VERSION}/movie/${movieId}?api_key=${MDB_API_KEY}`;
+      axios(url)
+        .then(res => {
+          this.setState({ movie: res.data, movieId });
+        })
+        .catch(e => {
+          console.log(e.error);
+        });
+    }
   };
   render() {
     return (
@@ -35,18 +49,11 @@ class index extends Component {
             </div>
           </Row>
         </Layout>
-        <Drawer
-          title="Basic Drawer"
-          width={720}
-          placement="right"
-          closable={true}
+        <MovieDetails
           onClose={this.onClose}
+          movie={this.state.movie}
           visible={this.state.visible}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Drawer>
+        />
       </React.Fragment>
     );
   }

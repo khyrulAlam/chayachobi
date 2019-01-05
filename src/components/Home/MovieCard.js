@@ -30,14 +30,16 @@ class MovieCard extends Component {
           >
             <Layout style={{ position: "relative", background: "transparent" }}>
               <Rate
-                style={{ color: "#52c41a" }}
+                count={10}
+                style={{ color: "#52c41a", fontSize: "11px" }}
                 character={<Icon type="star" theme="filled" />}
                 allowHalf={true}
                 disabled
-                defaultValue={Number(
-                  (this.props.movie.vote_average / 2).toFixed(1)
-                )}
+                defaultValue={this.props.movie.vote_average}
               />
+              <span className="ant-rate-text">
+                {this.props.movie.vote_average} stars
+              </span>
               <div className="movie__title">
                 <h3>{this.props.movie.title}</h3>
               </div>
@@ -62,7 +64,12 @@ class MovieCard extends Component {
                   {this.props.movie.release_date}
                 </div>
               </div>
-              <Button className="movie_details" onClick={this.props.openDrawer}>
+              <Button
+                className="movie_details"
+                onClick={() => {
+                  this.props.openDrawer(this.props.movie.id);
+                }}
+              >
                 Details
               </Button>
             </Layout>
