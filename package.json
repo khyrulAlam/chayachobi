@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.11.6",
-    "axios": "^0.18.0",
+    "axios": "^0.30.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-image": "^1.5.1",
